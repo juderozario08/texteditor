@@ -1,20 +1,20 @@
 [
-    {
-        "directory": "/home/juderozario/Projects/TextEditor/build",
-        "command": "/usr/bin/c++  -I/home/juderozario/Projects/TextEditor/include -std=gnu++17 -o CMakeFiles/texteditor.dir/src/core.cpp.o -c /home/juderozario/Projects/TextEditor/src/core.cpp",
-        "file": "/home/juderozario/Projects/TextEditor/src/core.cpp",
-        "output": "CMakeFiles/texteditor.dir/src/core.cpp.o"
-    },
-    {
-        "directory": "/home/juderozario/Projects/TextEditor/build",
-        "command": "/usr/bin/c++  -I/home/juderozario/Projects/TextEditor/include -std=gnu++17 -o CMakeFiles/texteditor.dir/src/editor/window.cpp.o -c /home/juderozario/Projects/TextEditor/src/editor/window.cpp",
-        "file": "/home/juderozario/Projects/TextEditor/src/editor/window.cpp",
-        "output": "CMakeFiles/texteditor.dir/src/editor/window.cpp.o"
-    },
-    {
-        "directory": "/home/juderozario/Projects/TextEditor/build",
-        "command": "/usr/bin/c++  -I/home/juderozario/Projects/TextEditor/include -std=gnu++17 -o CMakeFiles/texteditor.dir/src/main.cpp.o -c /home/juderozario/Projects/TextEditor/src/main.cpp",
-        "file": "/home/juderozario/Projects/TextEditor/src/main.cpp",
-        "output": "CMakeFiles/texteditor.dir/src/main.cpp.o"
-    }
+{
+  "directory": "/home/juderozario/Projects/TextEditor/build",
+  "command": "/usr/bin/c++  -I/home/juderozario/Projects/TextEditor/include -std=gnu++17 -o CMakeFiles/texteditor.dir/src/core.cpp.o -c /home/juderozario/Projects/TextEditor/src/core.cpp",
+  "file": "/home/juderozario/Projects/TextEditor/src/core.cpp",
+  "output": "CMakeFiles/texteditor.dir/src/core.cpp.o"
+},
+{
+  "directory": "/home/juderozario/Projects/TextEditor/build",
+  "command": "/usr/bin/c++  -I/home/juderozario/Projects/TextEditor/include -std=gnu++17 -o CMakeFiles/texteditor.dir/src/editor/window.cpp.o -c /home/juderozario/Projects/TextEditor/src/editor/window.cpp",
+  "file": "/home/juderozario/Projects/TextEditor/src/editor/window.cpp",
+  "output": "CMakeFiles/texteditor.dir/src/editor/window.cpp.o"
+},
+{
+  "directory": "/home/juderozario/Projects/TextEditor/build",
+  "command": "/usr/bin/c++  -I/home/juderozario/Projects/TextEditor/include -std=gnu++17 -o CMakeFiles/texteditor.dir/src/main.cpp.o -c /home/juderozario/Projects/TextEditor/src/main.cpp",
+  "file": "/home/juderozario/Projects/TextEditor/src/main.cpp",
+  "output": "CMakeFiles/texteditor.dir/src/main.cpp.o"
+}
 ]

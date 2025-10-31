@@ -8,7 +8,7 @@ SDLContext createWindow(const char *title, int width, int height) {
                                              SDL_WINDOW_RESIZABLE, &ctx.window,
                                              &ctx.renderer),
                  "Failed to create window and renderer");
-    core::ensure(SDL_ShowWindow(ctx.window) == 0, "Failed to show window");
+    core::ensure(SDL_ShowWindow(ctx.window), "Failed to show window");
     return ctx;
 }
 void destroyWindow(SDLContext &ctx) {

@@ -2,6 +2,8 @@ texteditor: \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o \
+  CMakeFiles/texteditor.dir/src/core.cpp.o \
+  CMakeFiles/texteditor.dir/src/editor/window.cpp.o \
   CMakeFiles/texteditor.dir/src/main.cpp.o \
   /usr/lib/libSDL3.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libstdc++.so \
@@ -37,6 +39,10 @@ texteditor: \
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o:
+
+CMakeFiles/texteditor.dir/src/core.cpp.o:
+
+CMakeFiles/texteditor.dir/src/editor/window.cpp.o:
 
 CMakeFiles/texteditor.dir/src/main.cpp.o:
 

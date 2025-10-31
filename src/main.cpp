@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
                 break;
             }
         }
-        core::ensure(SDL_SetRenderDrawColor(ctx.renderer, 0, 0, 0, 255) == 0,
+        core::ensure(SDL_SetRenderDrawColor(ctx.renderer, 0, 0, 0, 255),
                      "Failed to set draw color");
         core::ensure(SDL_RenderClear(ctx.renderer), "Failed to clear renderer");
 
