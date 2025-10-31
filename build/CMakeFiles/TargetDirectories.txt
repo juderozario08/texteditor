@@ -1,3 +1,0 @@
-/home/juderozario/Projects/TextEditor/build/CMakeFiles/texteditor.dir
-/home/juderozario/Projects/TextEditor/build/CMakeFiles/edit_cache.dir
-/home/juderozario/Projects/TextEditor/build/CMakeFiles/rebuild_cache.dir
