@@ -2,12 +2,12 @@
 #include "editor/window.hpp"
 #include <SDL3/SDL.h>
 
-const unsigned int vWidth = 800;
-const unsigned int vHeight = 600;
+const unsigned int WIDTH = 800;
+const unsigned int HEIGHT = 600;
 
 int main(int argc, char **argv) {
     editor::SDLContext ctx =
-        editor::createWindowAndRenderer("TextEditor", vWidth, vHeight);
+        editor::createWindowAndRenderer("TextEditor", WIDTH, HEIGHT);
 
     SDL_Event events;
     bool running = true;
