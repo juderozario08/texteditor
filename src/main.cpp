@@ -7,7 +7,7 @@ const unsigned int vHeight = 600;
 
 int main(int argc, char **argv) {
     editor::SDLContext ctx =
-        editor::createWindow("TextEditor", vWidth, vHeight);
+        editor::createWindowAndRenderer("TextEditor", vWidth, vHeight);
 
     SDL_Event events;
     bool running = true;

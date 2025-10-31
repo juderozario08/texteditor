@@ -2,7 +2,7 @@
 #include "core.hpp"
 
 namespace editor {
-SDLContext createWindow(const char *title, int width, int height) {
+SDLContext createWindowAndRenderer(const char *title, int width, int height) {
     SDLContext ctx;
     core::ensure(SDL_CreateWindowAndRenderer(title, width, height,
                                              SDL_WINDOW_RESIZABLE, &ctx.window,

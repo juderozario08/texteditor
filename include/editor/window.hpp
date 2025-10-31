@@ -6,6 +6,6 @@ struct SDLContext {
     SDL_Window *window = nullptr;
     SDL_Renderer *renderer = nullptr;
 };
-SDLContext createWindow(const char *title, int width, int height);
+SDLContext createWindowAndRenderer(const char *title, int width, int height);
 void destroyWindow(SDLContext &ctx);
 } // namespace editor
