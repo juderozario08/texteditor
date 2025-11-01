@@ -7,8 +7,8 @@ void logError(const std::string &msg) {
     std::cerr << msg << ": " << SDL_GetError() << std::endl;
 }
 
-void ensure(bool success, const std::string &msg) {
-    if (!success) {
+void ensure(bool status, const std::string &msg) {
+    if (!status) {
         logError(msg);
         std::exit(EXIT_FAILURE);
     }

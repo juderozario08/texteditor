@@ -4,11 +4,12 @@
 namespace editor {
 SDLContext createWindowAndRenderer(const char *title, int width, int height) {
     SDLContext ctx;
-    core::ensure(SDL_CreateWindowAndRenderer(title, width, height,
-                                             SDL_WINDOW_RESIZABLE, &ctx.window,
-                                             &ctx.renderer),
-                 "Failed to create window and renderer");
-    core::ensure(SDL_ShowWindow(ctx.window), "Failed to show window");
+    ctx.window = core::ensure(SDL_CreateWindow("TextEditor", 0, 0, width,
+                                               height, SDL_WINDOW_RESIZABLE),
+                              "Window creation failed");
+    ctx.renderer = core::ensure(
+        SDL_CreateRenderer(ctx.window, -1, SDL_RENDERER_ACCELERATED),
+        "Renderer creation failed");
     return ctx;
 }
 void destroyWindow(SDLContext &ctx) {

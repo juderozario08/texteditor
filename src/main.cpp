@@ -1,21 +1,23 @@
 #include "core.hpp"
 #include "editor/window.hpp"
-#include <SDL3/SDL.h>
 
 const unsigned int WIDTH = 800;
 const unsigned int HEIGHT = 600;
 
 int main(int argc, char **argv) {
+    core::ensure(SDL_Init(SDL_INIT_VIDEO), "SDL Initialization error");
     editor::SDLContext ctx =
         editor::createWindowAndRenderer("TextEditor", WIDTH, HEIGHT);
 
     SDL_Event events;
     bool running = true;
     while (running) {
-        if (SDL_PollEvent(&events) != 0) {
+        if (!SDL_PollEvent(&events)) {
             switch (events.type) {
-            case SDL_EVENT_QUIT:
+            case SDL_QUIT:
                 running = false;
+                break;
+            default:
                 break;
             }
         }
@@ -23,11 +25,12 @@ int main(int argc, char **argv) {
                      "Failed to set draw color");
         core::ensure(SDL_RenderClear(ctx.renderer), "Failed to clear renderer");
 
-        SDL_FRect rects[] = {{0, 0, 400, 300}, {200, 200, 300, 150}};
+        SDL_Rect rects[] = {{0, 0, 400, 300}, {200, 200, 300, 150}};
         SDL_SetRenderDrawColor(ctx.renderer, 255, 255, 255, 100);
         SDL_RenderFillRect(ctx.renderer, &rects[0]);
         SDL_SetRenderDrawColor(ctx.renderer, 33, 33, 33, 100);
         SDL_RenderFillRect(ctx.renderer, &rects[1]);
+
         SDL_RenderPresent(ctx.renderer);
         SDL_Delay(16);
     }
