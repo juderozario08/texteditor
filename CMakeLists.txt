@@ -19,12 +19,21 @@ file(GLOB_RECURSE SRC_FILES
 # Include directories
 include_directories(${INCLUDE_DIR})
 
-# Find SDL2 using pkg-config
+# Find SDL3 using pkg-config
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(SDL2 REQUIRED IMPORTED_TARGET sdl2)
+pkg_check_modules(SDL3 REQUIRED IMPORTED_TARGET sdl3)
+
+# Find Lua using pkg-config (try lua5.4 first, fallback to lua)
+pkg_check_modules(LUA REQUIRED lua5.4)
+if (NOT LUA_FOUND)
+    pkg_check_modules(LUA REQUIRED lua)
+endif()
+
+# Include Lua headers
+include_directories(${LUA_INCLUDE_DIRS})
 
 # Create executable
 add_executable(texteditor ${SRC_FILES})
 
-# Link SDL2
-target_link_libraries(texteditor PRIVATE PkgConfig::SDL2)
+# Link SDL3 and Lua
+target_link_libraries(texteditor PRIVATE PkgConfig::SDL3 ${LUA_LIBRARIES})
