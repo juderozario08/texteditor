@@ -35,12 +35,6 @@ include_directories(${LUA_INCLUDE_DIRS})
 # Create executable
 add_executable(texteditor ${SRC_FILES})
 
-# Set runtime search path only once
-set_target_properties(texteditor PROPERTIES
-    INSTALL_RPATH "/opt/homebrew/lib"
-    BUILD_WITH_INSTALL_RPATH TRUE
-)
-
 # Find fmtlib
 find_package(fmt REQUIRED)
 
