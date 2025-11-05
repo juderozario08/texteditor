@@ -17,5 +17,5 @@ struct SDLContext {
     SDL_Renderer *renderer = nullptr;
 };
 SDLContext createWindowAndRenderer(const char *title, int width, int height);
-void destroyWindow(SDLContext &ctx);
+void destroyWindowAndRenderer(SDLContext &ctx);
 } // namespace editor

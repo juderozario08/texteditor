@@ -1,12 +1,8 @@
 #include "core.hpp"
 #include <cstdlib>
-#include <iostream>
 
 namespace core {
-void logError(const char *msg) {
-    std::cerr << msg << ": " << SDL_GetError() << std::endl;
-    SDL_Log("%s: %s", msg, SDL_GetError());
-}
+void logError(const char *msg) { SDL_Log("%s: %s", SDL_GetError(), msg); }
 
 void ensure(bool status, const char *msg) {
     if (!status) {

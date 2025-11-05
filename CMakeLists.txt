@@ -35,5 +35,14 @@ include_directories(${LUA_INCLUDE_DIRS})
 # Create executable
 add_executable(texteditor ${SRC_FILES})
 
-# Link SDL3 and Lua
-target_link_libraries(texteditor PRIVATE PkgConfig::SDL3 ${LUA_LIBRARIES})
+# Set runtime search path only once
+set_target_properties(texteditor PROPERTIES
+    INSTALL_RPATH "/opt/homebrew/lib"
+    BUILD_WITH_INSTALL_RPATH TRUE
+)
+
+# Find fmtlib
+find_package(fmt REQUIRED)
+
+# Link SDL3, Lua, and fmt
+target_link_libraries(texteditor PRIVATE PkgConfig::SDL3 ${LUA_LIBRARIES} fmt::fmt)
