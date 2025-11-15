@@ -1,5 +1,6 @@
 ---@alias Color { color:string, alpha:integer }
 
+
 ---@class Theme
 ---@field background Color
 ---@field foreground Color
@@ -41,8 +42,8 @@
 
 ---@class UI
 ---@field theme string
----@field cursor_style string
----@field line_numbers string
+---@field cursor_style "block" | "line" | "underline"
+---@field line_numbers "relative" | "absolute" | "hidden"
 ---@field status_bar_visible boolean
 ---@field tab_bar_visible boolean
 ---@field highlight_current_line boolean
@@ -51,10 +52,10 @@
 ---@field ui_scale_percent integer
 
 ---@class Input
----@field shortcut_save table<string>
----@field shortcut_search table<string>
----@field shortcut_split_vertical table<string>
----@field shortcut_split_horizontal table<string>
+---@field shortcut_save string
+---@field shortcut_search string
+---@field shortcut_split_vertical string
+---@field shortcut_split_horizontal string
 ---@field vim_mode boolean
 ---@field autocomplete boolean
 ---@field clipboard_integration boolean
@@ -63,9 +64,9 @@
 ---@field mouse_selection boolean
 ---@field drag_and_drop boolean
 
----@class Editor
+---@class Preference
 ---@field tab_width integer
----@field auto_format string
+---@field auto_format "on_save" | "on_paste" | "manual"
 ---@field bracket_matching boolean
 ---@field auto_close_brackets boolean
 ---@field word_wrap boolean
@@ -86,25 +87,25 @@
 ---@field plugin_sandboxing boolean
 
 ---@class File
----@field autosave_mode string
+---@field autosave_mode "on_focus" | "delay" | "manual"
 ---@field delay integer
 ---@field exclude_patterns table<string>
 ---@field show_hidden_files boolean
 ---@field file_watcher boolean
 
----@class ConfigType
+---@class EditorConfig
 ---@field Theme Theme
 ---@field Font Font
 ---@field UI UI
 ---@field Input Input
----@field Editor Editor
+---@field Preference Preference
 ---@field Plugins Plugins
 ---@field File File
 
----@type ConfigType
-Config = {}
+---@type EditorConfig
+config = {}
 
-Config.Theme = {
+config.Theme = {
     background = {
         color = "#23332f",
         alpha = 255,
@@ -227,15 +228,23 @@ Config.Theme = {
     }
 }
 
-Config.Font = {
-    family = {},
-    color = "#ffffffff",
+
+config.Font = {
+    family = {
+        "CaskaydiaCove",
+        "FiraCode"
+    },
+    color = {
+        color = "#ffffff",
+        alpha = 100
+    },
     ligatures = true,
     size = 14,
     line_height = 1.5
 }
 
-Config.UI = {
+
+config.UI = {
     theme = "Catppuccin Mocha",
     cursor_style = "block",
     line_numbers = "relative",
@@ -247,11 +256,12 @@ Config.UI = {
     ui_scale_percent = 100
 }
 
-Config.Input = {
-    shortcut_save = { "<C-s>" },
-    shortcut_search = { "<C-f>" },
-    shortcut_split_vertical = { "<C-w><C-v>" },
-    shortcut_split_horizontal = { "<C-w><C-s>" },
+
+config.Input = {
+    shortcut_save = "<C-s>",
+    shortcut_search = "<C-f>",
+    shortcut_split_vertical = "<C-w><C-v>",
+    shortcut_split_horizontal = "<C-w><C-s>",
     vim_mode = true,
     autocomplete = true,
     clipboard_integration = true,
@@ -261,7 +271,8 @@ Config.Input = {
     drag_and_drop = true
 }
 
-Config.Editor = {
+
+config.Preference = {
     tab_width = 4,
     auto_format = "on_save",
     bracket_matching = true,
@@ -273,25 +284,27 @@ Config.Editor = {
     auto_indent = true
 }
 
-Config.Plugins = {
+
+config.Plugins = {
     lsp = true,
     snippets = true,
     git = true,
     linter = true,
-    debugger = true,
+    -- debugger = true,
     file_explorer = true,
-    build_tasks = true,
+    -- build_tasks = true,
     hot_reload = true,
-    sandboxing = true
+    -- sandboxing = true
 }
 
 
-Config.File = {
+config.File = {
     autosave_mode = "on_focus",
     delay = 50,
-    exclude_patterns = {},
+    exclude_patterns = { "node_modules", ".git" },
     show_hidden_files = true,
     file_watcher = true,
 }
 
-return Config
+
+return config

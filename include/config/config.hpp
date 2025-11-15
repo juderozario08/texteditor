@@ -6,10 +6,13 @@
 #include <type_traits>
 
 namespace config {
-enum class CursorStyleOpts { Block, Line, Underline };
-enum class LineNumbersOpts { Absolute, Relative, Hidden };
-enum class AutoFormatOpts { OnSave, OnPaste, Manual };
-enum class AutosaveModeOpts { OnFocus, Delay, Manual };
+
+constexpr const char *NO_CONFIG_FOUND = "No config file found";
+
+enum class CursorStyleOpts { Block = 0, Line, Underline };
+enum class LineNumbersOpts { Absolute = 0, Relative, Hidden };
+enum class AutoFormatOpts { OnSave = 0, OnPaste, Manual };
+enum class AutosaveModeOpts { OnFocus = 0, Delay, Manual };
 
 typedef struct {
     unsigned int r, g, b;
@@ -29,7 +32,7 @@ typedef struct {
 
 // Font configuration
 typedef struct {
-    const char *family;
+    std::vector<const char *> family;
     Color color;
     bool ligatures;
     unsigned int size;
@@ -83,20 +86,20 @@ typedef struct {
 typedef struct {
     bool lsp;
     bool snippets;
-    bool plugin_git;
-    bool plugin_linter;
-    bool plugin_debugger;
-    bool plugin_file_explorer;
-    bool build_tasks;
-    bool plugin_hot_reload;
-    bool plugin_sandboxing;
+    bool git;
+    bool linter;
+    // bool debugger;
+    bool file_explorer;
+    // bool build_tasks;
+    bool hot_reload;
+    // bool sandboxing;
 } Plugins;
 
 // File & Project Settings
 typedef struct {
-    const char *autosave_mode;     // "on_focus", "delay"
-    unsigned int delay;            // if autosave_mode is delay
-    const char **exclude_patterns; // array of strings (null-terminated)
+    AutosaveModeOpts autosave_mode;             // "on_focus", "delay"
+    unsigned int delay;                         // if autosave_mode is delay
+    std::vector<const char *> exclude_patterns; // array of strings (null-terminated)
     // bool restore_last_session;
     bool show_hidden_files;
     // bool follow_symlinks;
@@ -116,10 +119,10 @@ typedef struct {
 // } DevTools;
 
 typedef struct {
-    UI appearance;
+    UI ui;
     Font font;
     Input input;
-    Preference editor;
+    Preference preference;
     Plugins plugins;
     File file;
     ThemeColors colors;
@@ -131,8 +134,13 @@ void load(const char *path);
 Color getBackgroundColor();
 bool configChanged(const char *path);
 void getConfigColorValue(lua_State *L, const char *key, Color *value);
-ColorRGB parseHexToString(const char *color);
 void getThemeConfig(lua_State *L);
+void getFontConfig(lua_State *L);
+void getUIConfig(lua_State *L);
+void getInputConfig(lua_State *L);
+void getPreferenceConfig(lua_State *L);
+void getPluginsConfig(lua_State *L);
+void getFileConfig(lua_State *L);
 
 template <typename T> void getConfigValue(lua_State *L, const char *key, T *value) {
     lua_getfield(L, -1, key);

@@ -14,7 +14,7 @@ int main(int argc, char **argv) {
     if (configPath) {
         config::load(configPath->c_str());
     } else {
-        SDL_Log("No config file found");
+        SDL_Log(config::NO_CONFIG_FOUND);
     }
 
     SDL_Event event;

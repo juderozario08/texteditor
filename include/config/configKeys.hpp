@@ -9,7 +9,7 @@ inline constexpr const char *Theme = "Theme";
 inline constexpr const char *Font = "Font";
 inline constexpr const char *UI = "UI";
 inline constexpr const char *Input = "Input";
-inline constexpr const char *Editor = "Editor";
+inline constexpr const char *Preference = "Preference";
 inline constexpr const char *Plugins = "Plugins";
 inline constexpr const char *File = "File";
 }
@@ -50,8 +50,8 @@ inline constexpr const char *HoverTabBackground = "hover_tab_background";
 namespace font {
 inline constexpr const char *Family = "family";
 inline constexpr const char *Ligatures = "ligatures";
-inline constexpr const char *Color = "font_color";
-inline constexpr const char *Size = "font_size";
+inline constexpr const char *Color = "color";
+inline constexpr const char *Size = "size";
 inline constexpr const char *LineHeight = "line_height";
 }
 
@@ -98,11 +98,11 @@ inline constexpr const char *Lsp = "lsp";
 inline constexpr const char *Snippets = "snippets";
 inline constexpr const char *Git = "git";
 inline constexpr const char *Linter = "linter";
-inline constexpr const char *Debugger = "debugger";
+// inline constexpr const char *Debugger = "debugger";
 inline constexpr const char *FileExplorer = "file_explorer";
-inline constexpr const char *BuildTasks = "build_tasks";
+// inline constexpr const char *BuildTasks = "build_tasks";
 inline constexpr const char *HotReload = "hot_reload";
-inline constexpr const char *Sandboxing = "sandboxing";
+// inline constexpr const char *Sandboxing = "sandboxing";
 }
 
 namespace file {
